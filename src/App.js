@@ -1,8 +1,9 @@
+import Header from './components/Header';
 import './App.css';
 
 function App() {
   return (
-    <h1>Hello app!</h1>
+    <Header />
   );
 }
 
