@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: grey;
+  padding: 16px 32px;
+  gap: 10px;
+}
+
+nav a {
+  margin-right: 16px;
+}

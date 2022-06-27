@@ -1,8 +1,18 @@
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import CountriesList from './components/CountriesList';
+import CountryStats from './components/CountryStats';
 import './App.css';
 
 function App() {
   return (
-    <h1>Hello app!</h1>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" exact element={<CountriesList />} />
+        <Route path="/country/:countryId" exact element={<CountryStats />} />
+      </Routes>
+    </div>
   );
 }
 
