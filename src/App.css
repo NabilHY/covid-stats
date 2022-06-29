@@ -18,7 +18,6 @@ nav a {
 }
 
 @supports (display: grid) {
-
   main {
     max-width: 10000px;
     margin: 0;
