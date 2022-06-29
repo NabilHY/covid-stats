@@ -1,7 +1,7 @@
-/* eslint-disable array-callback-return */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { CgEnter } from 'react-icons/cg';
 
 const CountryComponent = () => {
   const data = useSelector((state) => state.allCountries.countries);
@@ -16,27 +16,34 @@ const CountryComponent = () => {
     return undefined;
   }).map((country) => (
     <>
-      <div key={country.location} className="column">
-        <Link to={`/country/${country.location}`}>
+      <Link to={`/country/${country.location}`} className="cont-card">
+        <div key={country.location} className="cont-card">
           <div className="country-card">
             <div className="card">
               <p>{country.location}</p>
-              <p>{country.confirmed}</p>
+              <p>
+                Confirmed Cases:
+                {' '}
+                {country.confirmed}
+              </p>
             </div>
+            <CgEnter size={30} />
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </>
   ));
   return (
-    <>
+    <div className="home">
       <input
         type="text"
         placeholder="Search for country..."
         onChange={(event) => { setSearchTerm(event.target.value); }}
       />
-      {renderList}
-    </>
+      <div className="countries-container">
+        {renderList}
+      </div>
+    </div>
   );
 };
 

@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { MdLocalHospital } from 'react-icons/md';
+import { BiCurrentLocation } from 'react-icons/bi';
+import { TbRadioactive } from 'react-icons/tb';
+import { GiConfirmed } from 'react-icons/gi';
+import { FaSkullCrossbones } from 'react-icons/fa';
+
 import axios from 'axios';
 import { selectCountry, removeSelectedCountry } from '../redux/actions/countryActions';
 
@@ -38,12 +44,27 @@ const CountryStats = () => {
     <>
       {country[0] && country.map((coun) => (
         <>
-          <div key={uuidv4()}>
-            <p>Country: {coun.location}</p>
-            <p>Deaths: {coun.deaths}</p>
-            <p>Confirmed: {coun.confirmed}</p>
-            <p>Active Cases: {coun.active}</p>
-            <p>Recovered: {coun.recovered}</p>
+          <div className="metrics" key={uuidv4()}>
+            <BiCurrentLocation size={30} />
+            <h1>{coun.location}</h1>
+            <div>
+              <div className="info">
+                <FaSkullCrossbones size={30} />
+                <p>{coun.deaths}</p>
+              </div>
+              <div className="info">
+                <GiConfirmed size={30} />
+                <p>{coun.confirmed}</p>
+              </div>
+              <div className="info">
+                <TbRadioactive size={30} />
+                <p>{coun.active}</p>
+              </div>
+              <div className="info">
+                <MdLocalHospital size={30} />
+                <p>{coun.recovered}</p>
+              </div>
+            </div>
           </div>
 
         </>

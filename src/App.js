@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="containers">
       <Header />
       <Routes>
         <Route path="/" exact element={<CountriesList />} />
