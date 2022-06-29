@@ -18,9 +18,7 @@ const CountryStats = () => {
   const fetchCountryStats = async () => {
     const response = await axios
       .get(`https://covid2019-api.herokuapp.com/v2/country/${location}`)
-      .catch((err) => {
-        console.log('Err', err);
-      });
+      .catch(() => {});
     dispatch(selectCountry(response.data.data));
   };
 

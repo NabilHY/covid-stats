@@ -9,10 +9,7 @@ const CountriesList = () => {
   const fetchCountries = async () => {
     const response = await axios
       .get('https://covid2019-api.herokuapp.com/v2/current')
-      .catch((err) => {
-        console.log('Err', err);
-      });
-    console.log(response);
+      .catch(() => {});
     dispatch(setCountries(response.data.data));
   };
 
