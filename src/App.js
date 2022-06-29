@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<CountriesList />} />
-        <Route path="/country/:countryId" exact element={<CountryStats />} />
+        <Route path="/country/:location" exact element={<CountryStats />} />
       </Routes>
     </div>
   );
