@@ -16,3 +16,17 @@ nav {
 nav a {
   margin-right: 16px;
 }
+
+@supports (display: grid) {
+  main {
+    max-width: 10000px;
+    margin: 0;
+  }
+
+  .countries-container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-gap: 1rem;
+  }
+}
