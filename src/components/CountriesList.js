@@ -12,6 +12,7 @@ const CountriesList = () => {
       .catch((err) => {
         console.log('Err', err);
       });
+    console.log(response);
     dispatch(setCountries(response.data.data));
   };
 
