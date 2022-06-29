@@ -39,11 +39,11 @@ const CountryStats = () => {
       {country[0] && country.map((coun) => (
         <>
           <div key={uuidv4()}>
-            <p>{coun.location}</p>
-            <p>{coun.deaths}</p>
-            <p>{coun.confirmed}</p>
-            <p>{coun.active}</p>
-            <p>{coun.recovered}</p>
+            <p>Country: {coun.location}</p>
+            <p>Deaths: {coun.deaths}</p>
+            <p>Confirmed: {coun.confirmed}</p>
+            <p>Active Cases: {coun.active}</p>
+            <p>Recovered: {coun.recovered}</p>
           </div>
 
         </>
