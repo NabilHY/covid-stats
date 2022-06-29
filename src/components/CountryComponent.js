@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const CountryComponent = () => {
-  const countries = useSelector((state) => state.allCountries.countries);
+  const data = useSelector((state) => state.allCountries.countries);
+  const countries = data.sort((a, b) => (a.location > b.location ? 1 : -1));
   const [searchTerm, setSearchTerm] = useState('');
   const renderList = countries.filter((country) => {
     if (searchTerm === '') {
@@ -20,6 +21,7 @@ const CountryComponent = () => {
           <div className="country-card">
             <div className="card">
               <p>{country.location}</p>
+              <p>{country.confirmed}</p>
             </div>
           </div>
         </Link>
