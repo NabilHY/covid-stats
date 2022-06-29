@@ -1,25 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { CgEnter } from 'react-icons/cg';
 
 const CountryComponent = () => {
-  const countries = useSelector((state) => state.allCountries.countries);
-  const renderList = countries.map((country) => {
-    const { location } = country;
-    return (
-      <div key={location} className="column">
-        <Link to={`/country/${location}`}>
+  const data = useSelector((state) => state.allCountries.countries);
+  const countries = data.sort((a, b) => (a.location > b.location ? 1 : -1));
+  const [searchTerm, setSearchTerm] = useState('');
+  const renderList = countries.filter((country) => {
+    if (searchTerm === '') {
+      return country;
+    } if (country.location.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return country;
+    }
+    return undefined;
+  }).map((country) => (
+    <>
+      <Link to={`/country/${country.location}`} className="cont-card">
+        <div key={country.location} className="cont-card">
           <div className="country-card">
             <div className="card">
-              <p>{location}</p>
+              <p>{country.location}</p>
+              <p>
+                Confirmed Cases:
+                {' '}
+                {country.confirmed}
+              </p>
             </div>
+            <CgEnter size={30} />
           </div>
-        </Link>
-      </div>
-    );
-  });
+        </div>
+      </Link>
+    </>
+  ));
   return (
-    <>{renderList}</>
+    <div className="home">
+      <input
+        type="text"
+        placeholder="Search for country..."
+        onChange={(event) => { setSearchTerm(event.target.value); }}
+      />
+      <div className="countries-container">
+        {renderList}
+      </div>
+    </div>
   );
 };
 

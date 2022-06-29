@@ -20,7 +20,7 @@ const CountriesList = () => {
   }, []);
 
   return (
-    <div className="countries-container">
+    <div>
       <CountryComponent />
     </div>
   );
