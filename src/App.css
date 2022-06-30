@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #4369b2;
+}
+
+/* NAVBAR STYYLING */
+
+nav {
+  color: #fff;
+  background-color: #5788e4;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  gap: 10px;
+}
+
+nav h2 {
+  font-size: 1.5em;
+}
+
+nav a {
+  margin-right: 16px;
+}
+
+.left-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.right-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+/* ==================================== */
+
+/* main page styling */
+
+.cont-card {
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  background-color: #5788e4;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cont-card a {
+  text-decoration: none;
+  width: 100%;
+  color: #fff;
+  padding: 10px;
+}
+
+.card p {
+  margin: 20px 0;
+}
+
+.containers {
+  background-color: #4369b2;
+  height: 1000%;
+}
+
+.search {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+}
+
+.home input {
+  font-family: 'Lato', sans-serif;
+  width: 30%;
+  padding: 1% 1%;
+  border-radius: 10px;
+  border: none;
+}
+
+.home input:focus,
+textarea:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* deatils page styling */
+
+.metrics {
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  margin: 100px 0;
+  gap: 30px;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 30px 0;
+  gap: 100px;
+}
+
+/* .country-card {
+  background-color: #fff;
+} */
+
+/* ==================================== */
+
+@supports (display: grid) {
+  main {
+    max-width: 10000px;
+    margin: 0;
+  }
+
+  .countries-container {
+    display: grid;
+    margin: 3%;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-gap: 0.5rem;
+  }
+}
