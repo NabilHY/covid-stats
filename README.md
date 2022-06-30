@@ -15,6 +15,9 @@
 
 [Live Demo Link](https://endearing-licorice-5a78c7.netlify.app)
 
+## Video Presentation
+[Link to loom video](https://www.loom.com/share/bfbd1692568e4af99d8e9ed9e0b8bb5c)
+
 ## Screenshots
 
 ![screenshot](./screenshot/Screenshot%202022-06-30%20094138.png)
