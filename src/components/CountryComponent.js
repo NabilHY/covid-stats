@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 import { CgEnter } from 'react-icons/cg';
 import { AiOutlineSearch } from 'react-icons/ai';
 
@@ -17,23 +16,21 @@ const CountryComponent = () => {
     }
     return undefined;
   }).map((country) => (
-    <>
-      <Link key={uuidv4()} to={`/country/${country.location}`} className="cont-card">
-        <div className="cont-card">
-          <div className="country-card">
-            <div className="card">
-              <p>{country.location}</p>
-              <p>
-                Confirmed Cases:
-                {' '}
-                {country.confirmed}
-              </p>
-            </div>
-            <CgEnter size={30} />
+    <Link key={country.location} to={`/country/${country.location}`} className="cont-card">
+      <div className="cont-card">
+        <div className="country-card">
+          <div className="card">
+            <p>{country.location}</p>
+            <p>
+              Confirmed Cases:
+              {' '}
+              {country.confirmed}
+            </p>
           </div>
+          <CgEnter size={30} />
         </div>
-      </Link>
-    </>
+      </div>
+    </Link>
   ));
   return (
     <div className="home">

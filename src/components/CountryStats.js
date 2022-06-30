@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdLocalHospital } from 'react-icons/md';
@@ -42,29 +41,28 @@ const CountryStats = () => {
     <>
       {country[0] && country.map((coun) => (
         <>
-          <div className="metrics" key={uuidv4()}>
+          <div key={coun.location} className="metrics">
             <BiCurrentLocation size={30} />
             <h1>{coun.location}</h1>
             <div>
-              <div className="info" key={uuidv4()}>
+              <div className="info">
                 <FaSkullCrossbones size={30} />
                 <p>{coun.deaths}</p>
               </div>
-              <div className="info" key={uuidv4()}>
+              <div className="info">
                 <GiConfirmed size={30} />
                 <p>{coun.confirmed}</p>
               </div>
-              <div className="info" key={uuidv4()}>
+              <div className="info">
                 <TbRadioactive size={30} />
                 <p>{coun.active}</p>
               </div>
-              <div className="info" key={uuidv4()}>
+              <div className="info">
                 <MdLocalHospital size={30} />
                 <p>{coun.recovered}</p>
               </div>
             </div>
           </div>
-
         </>
       ))}
     </>
