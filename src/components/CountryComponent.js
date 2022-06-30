@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { CgEnter } from 'react-icons/cg';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const CountryComponent = () => {
   const data = useSelector((state) => state.allCountries.countries);
@@ -16,8 +18,8 @@ const CountryComponent = () => {
     return undefined;
   }).map((country) => (
     <>
-      <Link to={`/country/${country.location}`} className="cont-card">
-        <div key={country.location} className="cont-card">
+      <Link key={uuidv4()} to={`/country/${country.location}`} className="cont-card">
+        <div className="cont-card">
           <div className="country-card">
             <div className="card">
               <p>{country.location}</p>
@@ -35,11 +37,14 @@ const CountryComponent = () => {
   ));
   return (
     <div className="home">
-      <input
-        type="text"
-        placeholder="Search for country..."
-        onChange={(event) => { setSearchTerm(event.target.value); }}
-      />
+      <div className="search">
+        <AiOutlineSearch size={30} />
+        <input
+          type="text"
+          placeholder="Search for country..."
+          onChange={(event) => { setSearchTerm(event.target.value); }}
+        />
+      </div>
       <div className="countries-container">
         {renderList}
       </div>

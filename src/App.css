@@ -64,7 +64,6 @@ nav a {
   font-family: 'Lato', sans-serif;
   background-color: #5788e4;
   width: 100%;
-  border-radius: 10px;
   margin-bottom: 10px;
 }
 
@@ -84,10 +83,18 @@ nav a {
   height: 1000%;
 }
 
+.search {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+}
+
 .home input {
   font-family: 'Lato', sans-serif;
-  display: block;
-  margin: 30px auto;
+  width: 30%;
   padding: 1% 1%;
   border-radius: 10px;
   border: none;
@@ -139,6 +146,6 @@ textarea:focus {
     margin: 3%;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
   }
 }

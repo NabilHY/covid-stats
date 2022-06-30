@@ -18,7 +18,7 @@ const CountryStats = () => {
   const fetchCountryStats = async () => {
     const response = await axios
       .get(`https://covid2019-api.herokuapp.com/v2/country/${location}`)
-      .catch(() => {});
+      .catch(() => { });
     dispatch(selectCountry(response.data.data));
   };
 
@@ -46,19 +46,19 @@ const CountryStats = () => {
             <BiCurrentLocation size={30} />
             <h1>{coun.location}</h1>
             <div>
-              <div className="info">
+              <div className="info" key={uuidv4()}>
                 <FaSkullCrossbones size={30} />
                 <p>{coun.deaths}</p>
               </div>
-              <div className="info">
+              <div className="info" key={uuidv4()}>
                 <GiConfirmed size={30} />
                 <p>{coun.confirmed}</p>
               </div>
-              <div className="info">
+              <div className="info" key={uuidv4()}>
                 <TbRadioactive size={30} />
                 <p>{coun.active}</p>
               </div>
-              <div className="info">
+              <div className="info" key={uuidv4()}>
                 <MdLocalHospital size={30} />
                 <p>{coun.recovered}</p>
               </div>
