@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CgEnter } from 'react-icons/cg';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const CountryComponent = () => {
   const data = useSelector((state) => state.allCountries.countries);
@@ -15,31 +16,32 @@ const CountryComponent = () => {
     }
     return undefined;
   }).map((country) => (
-    <>
-      <Link to={`/country/${country.location}`} className="cont-card">
-        <div key={country.location} className="cont-card">
-          <div className="country-card">
-            <div className="card">
-              <p>{country.location}</p>
-              <p>
-                Confirmed Cases:
-                {' '}
-                {country.confirmed}
-              </p>
-            </div>
-            <CgEnter size={30} />
+    <Link key={country.location} to={`/country/${country.location}`} className="cont-card">
+      <div className="cont-card">
+        <div className="country-card">
+          <div className="card">
+            <p>{country.location}</p>
+            <p>
+              Confirmed Cases:
+              {' '}
+              {country.confirmed}
+            </p>
           </div>
+          <CgEnter size={30} />
         </div>
-      </Link>
-    </>
+      </div>
+    </Link>
   ));
   return (
     <div className="home">
-      <input
-        type="text"
-        placeholder="Search for country..."
-        onChange={(event) => { setSearchTerm(event.target.value); }}
-      />
+      <div className="search">
+        <AiOutlineSearch size={30} />
+        <input
+          type="text"
+          placeholder="Search for country..."
+          onChange={(event) => { setSearchTerm(event.target.value); }}
+        />
+      </div>
       <div className="countries-container">
         {renderList}
       </div>

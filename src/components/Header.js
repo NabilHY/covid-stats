@@ -12,7 +12,7 @@ function Header() {
         <Link to="/">
           <IoMdArrowBack className="icon" size={30} />
         </Link>
-        <RiVirusFill size={30} />
+        <RiVirusFill size={40} />
         <h2>Covid Stats</h2>
       </div>
       <div className="right-nav">

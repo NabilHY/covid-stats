@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdLocalHospital } from 'react-icons/md';
@@ -18,7 +17,7 @@ const CountryStats = () => {
   const fetchCountryStats = async () => {
     const response = await axios
       .get(`https://covid2019-api.herokuapp.com/v2/country/${location}`)
-      .catch(() => {});
+      .catch(() => { });
     dispatch(selectCountry(response.data.data));
   };
 
@@ -42,7 +41,7 @@ const CountryStats = () => {
     <>
       {country[0] && country.map((coun) => (
         <>
-          <div className="metrics" key={uuidv4()}>
+          <div key={coun.location} className="metrics">
             <BiCurrentLocation size={30} />
             <h1>{coun.location}</h1>
             <div>
@@ -64,7 +63,6 @@ const CountryStats = () => {
               </div>
             </div>
           </div>
-
         </>
       ))}
     </>
